@@ -4,9 +4,9 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Empresa {
 
-	String Nombre;
-	int listaDeZonasDeCobertura[] = new int [100];
-	Contacto listaDeContactos[] = new Contacto [100];
+	private String Nombre;
+	private int listaDeZonasDeCobertura[] = new int [100];
+	private Contacto listaDeContactos[] = new Contacto [100];
 	/*
 	 * Se deben incorporar los atributos necesarios.
 	 */
@@ -39,7 +39,7 @@ public class Empresa {
 		 * Incorpora una nueva zona de cobertura (Las zonas de cobertura se identifican por el codigo postal)
 		 */
 		
-		if(!elCodigoPostalEstaDentroDeLaZonaDeCobertura(codigoPostal) & String.valueOf(codigoPostal).length()==4){
+		if(!elCodigoPostalEstaDentroDeLaZonaDeCobertura(codigoPostal) && String.valueOf(codigoPostal).length()==4){
 			for (int i=0; i<listaDeZonasDeCobertura.length; i++){
 			    if(listaDeZonasDeCobertura[i]==0){
 			    	listaDeZonasDeCobertura[i]=codigoPostal;
@@ -80,7 +80,7 @@ public class Empresa {
 		for (int i=0; i<listaDeContactos.length; i++){
 		    if(listaDeContactos[i]!=null){
 		    	if(elCodigoPostalEstaDentroDeLaZonaDeCobertura(listaDeContactos[i].getCodigoPostal())) {
-		    		if(!(listaDeContactos[i].esCliente()) & listaDeContactos[i].deseaSerLlamado()) {
+		    		if(!(listaDeContactos[i].esCliente()) && listaDeContactos[i].deseaSerLlamado()) {
 			    		for(int j=0; j<listaParaLlamado.length; j++) {
 			    			if(listaParaLlamado[j]==null) {
 			    				listaParaLlamado[j]=listaDeContactos[i];

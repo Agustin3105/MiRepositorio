@@ -2,11 +2,11 @@ package ar.edu.unlam.pb1.finalAgosto;
 
 public class Contacto {
 	
-	String nombreCompleto, Mail, Dirección, Localidad;
-	int Celular, codigoPostal;
-	boolean esCliente, deseaSerLlamado;
-	Provincia Provincia;
-	Llamada registroDeLlamadas[]=new Llamada[100];
+	private String nombreCompleto, Mail, Dirección, Localidad;
+	private int Celular, codigoPostal;
+	private boolean esCliente, deseaSerLlamado;
+	private Provincia Provincia;
+	private Llamada registroDeLlamadas[]=new Llamada[100];
 	
 	/*
 	 * Se deben incorporar los atributos necesarios.
@@ -27,7 +27,7 @@ public class Contacto {
 		 * Eval�a si un String determinado puede ser almacenado como E-MAIL.
 		 */
 		
-		if(eMail.contains(String.valueOf("@")) & eMail.contains(String.valueOf("."))){
+		if(eMail.contains(String.valueOf("@")) && eMail.contains(String.valueOf("."))){
 			return true;
 		}
 		else return false;
