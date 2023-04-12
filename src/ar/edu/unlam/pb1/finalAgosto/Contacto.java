@@ -6,6 +6,7 @@ public class Contacto {
 	int Celular, codigoPostal;
 	boolean esCliente, deseaSerLlamado;
 	Provincia Provincia;
+	Llamada historialDeLlamadas[]=new Llamada[100];
 	
 	/*
 	 * Se deben incorporar los atributos necesarios.
@@ -21,16 +22,30 @@ public class Contacto {
 	 * �	Desea ser llamado nuevamente (Si o No): Inicialmente se carga en �Si�.
 	 */
 	
-	public void esEmailValido(String eMail) {
+	public boolean esEmailValido(String eMail) {
 		/*
 		 * Eval�a si un String determinado puede ser almacenado como E-MAIL.
 		 */
+		
+		if(eMail.contains(String.valueOf("@")) & eMail.contains(String.valueOf("."))){
+			return true;
+		}
+		else return false;
+		
 	}
 	
 	public boolean registrarNuevaLlamada(Llamada nueva) {
 		/*
 		 * Registra una nueva llamada asociada al contacto actual.
 		 */
+		
+		for (int i=0; i<historialDeLlamadas.length; i++){
+		    if(historialDeLlamadas[i]==null) {
+		    	historialDeLlamadas[i]=nueva;
+		    	return true;
+		    }
+		}
+		
 		return false;
 	}
 	

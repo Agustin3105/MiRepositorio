@@ -14,7 +14,7 @@ public class Empresa {
 		 * Devuelve el nombre de la empresa
 		 */
 		
-		return "";
+		return this.Nombre;
 	}
 	
 	public boolean agregarNuevoContacto(Contacto nuevo) {
@@ -22,6 +22,12 @@ public class Empresa {
 		/*
 		 * Incorpora un nuevo contacto a la empresa
 		 */
+		for (int i=0; i<listaDeContactos.length; i++){
+		    if(listaDeContactos[i]==null) {
+		    	listaDeContactos[i]=nuevo;
+		    	return true;
+		    }
+		}
 		
 		return false;
 	}
@@ -31,6 +37,15 @@ public class Empresa {
 		 * Incorpora una nueva zona de cobertura (Las zonas de cobertura se identifican por el codigo postal)
 		 */
 		
+		if(!elCodigoPostalEstaDentroDeLaZonaDeCobertura(codigoPostal) & String.valueOf(codigoPostal).length()==4){
+			for (int i=0; i<listaDeZonasDeCobertura.length; i++){
+			    if(listaDeZonasDeCobertura[i]==0){
+			    	listaDeZonasDeCobertura[i]=codigoPostal;
+			    	return true;
+			    }
+			}
+		}
+		
 		return false;
 	}	
 	
@@ -38,6 +53,12 @@ public class Empresa {
 		/*
 		 * Determina si un c�digo postal est� dentro de la zona de cobertura
 		 */
+		
+		for (int i=0; i<listaDeZonasDeCobertura.length; i++){
+		    if(listaDeZonasDeCobertura[i]==codigoPostal){
+		    	return true;
+		    }
+		}
 		return false;
 	}
 	
