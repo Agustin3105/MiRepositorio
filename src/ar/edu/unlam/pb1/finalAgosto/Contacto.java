@@ -34,6 +34,18 @@ public class Contacto {
 		
 	}
 	
+	public boolean esCliente() {
+		return esCliente;
+	}
+	
+	public boolean deseaSerLlamado() {
+		return deseaSerLlamado;
+	}
+	
+	public int getCodigoPostal() {
+		return codigoPostal;
+	}
+	
 	public boolean registrarNuevaLlamada(Llamada nueva) {
 		/*
 		 * Registra una nueva llamada asociada al contacto actual.
