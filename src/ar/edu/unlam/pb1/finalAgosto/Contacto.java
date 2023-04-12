@@ -6,7 +6,7 @@ public class Contacto {
 	int Celular, codigoPostal;
 	boolean esCliente, deseaSerLlamado;
 	Provincia Provincia;
-	Llamada historialDeLlamadas[]=new Llamada[100];
+	Llamada registroDeLlamadas[]=new Llamada[100];
 	
 	/*
 	 * Se deben incorporar los atributos necesarios.
@@ -51,9 +51,9 @@ public class Contacto {
 		 * Registra una nueva llamada asociada al contacto actual.
 		 */
 		
-		for (int i=0; i<historialDeLlamadas.length; i++){
-		    if(historialDeLlamadas[i]==null) {
-		    	historialDeLlamadas[i]=nueva;
+		for (int i=0; i<registroDeLlamadas.length; i++){
+		    if(registroDeLlamadas[i]==null) {
+		    	registroDeLlamadas[i]=nueva;
 		    	return true;
 		    }
 		}
@@ -61,12 +61,35 @@ public class Contacto {
 		return false;
 	}
 	
+	public String mostrarRegistroDeLlamadas(){
+		String Registro = "Registro de Llamadas" + "/n";
+		
+		for(int i=0; i<registroDeLlamadas.length; i++){
+			if(registroDeLlamadas[i]!=null){
+				Registro += "/n" + "- LLAMADA N°" + (i+1) + "- /n" +
+							"Fue exitosa?" + registroDeLlamadas[i].isFueExitosa() + "/n" +
+							"Observaciones: " + registroDeLlamadas[i].getObservaciones() + "/n";						
+			}
+		}
+		
+		return Registro;
+	}
+	
 	public String toString() {
 		/*
 		 * Muestra los datos de un contacto, entre los que se debe incluir el registro de las llamadas realizadas.
 		 */
 		
-		return "";
+		String informeDelContacto="Nombre: " + nombreCompleto + "/n" +
+								  "E-Mail: " + Mail + "/n" +
+								  "Dirección: " + Dirección + "/n" +
+								  "Codigo Postal: " + codigoPostal + "/n" +
+								  "Localidad: " + Localidad + "/n" +
+								  "Provincia: " + Provincia + "/n" +
+								  "Celular: " + Celular + "/n" + 
+								  mostrarRegistroDeLlamadas();
+		
+		return informeDelContacto;
 	}
 	
 }
